@@ -18,7 +18,6 @@ total = 0
 #   * Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 
 
-
 #   * The greatest increase in profits (date and amount) over the entire period
 #max(changes) and which date
 
@@ -48,6 +47,7 @@ with open(pybank_csv) as csvfile:
     for row in csvreader:
         num_rows += 1
         total += int(row[1])
+    
 
 print(num_rows)
 print(total)
