@@ -7,24 +7,24 @@ import csv
 
 pybank_csv = os.path.join("Resources", "budget_data.csv")
 
-# Define the data
-
-def analysis(budget_data):
-    month = str(budget_data[0])
-    profit_losses = int(budget_data[1])
-
 # The total number of months included in the dataset
-    
+
+num_rows = 0
 
 # The net total amount of "Profit/Losses" over the entire period
 
-netincome = sum(profit_losses)
+total = 0
 
 #   * Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
 
+
+
 #   * The greatest increase in profits (date and amount) over the entire period
+#max(changes) and which date
 
 #   * The greatest decrease in losses (date and amount) over the entire period
+
+#min(changes) and which date
 
 # * As an example, your analysis should look similar to the one below:
 
@@ -41,7 +41,13 @@ netincome = sum(profit_losses)
 # * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
 with open(pybank_csv) as csvfile:
-    csv_reader = csv.reader(csvfile, delimiter=",")
+    csvreader = csv.reader(csvfile, delimiter=",")
+    
+    header = next(csvreader)
 
     for row in csvreader:
-        print(sum(netincome)
+        num_rows += 1
+        total += int(row[1])
+
+print(num_rows)
+print(total)
